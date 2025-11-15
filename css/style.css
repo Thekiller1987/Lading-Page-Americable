@@ -1,0 +1,253 @@
+/* Definición de variables de color de la marca */
+:root {
+    --brand-blue: #005cbf; /* Azul extraído de tu logo */
+    --brand-dark: #212529; /* Negro suave */
+    --brand-light: #f8f9fa; /* Gris claro */
+    --brand-font: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Scroll suave */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--brand-font);
+}
+
+/* --- Barra de Navegación (Logo más grande y botón fijo) --- */
+.navbar-logo {
+    max-height: 75px; /* CAMBIO: Aumentado de 65px a 75px */
+    transition: transform 0.3s ease;
+}
+.navbar-logo:hover {
+    transform: scale(1.05);
+}
+.navbar .nav-link.fw-bold {
+    font-weight: 600 !important;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+.navbar .nav-link.active {
+    color: var(--brand-blue) !important;
+}
+.navbar .btn-primary {
+    background-color: var(--brand-blue);
+    border-color: var(--brand-blue);
+    transition: all 0.3s ease;
+    min-width: 150px; /* CAMBIO: Agregado para fijar el ancho del botón */
+    text-align: center; /* Centra el texto si el ancho es mayor */
+}
+.navbar .btn-primary:hover {
+    background-color: #004a9a; 
+    border-color: #004a9a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+
+/* --- Hero Section (Usa 'hero-bg.jpg') --- */
+.hero-section {
+    height: 90vh; 
+    min-height: 700px;
+    /* CAMBIO: Ahora usa 'hero-bg.jpg' */
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.hero-section .btn-primary {
+    transition: all 0.3s ease;
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+}
+.hero-section .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0, 92, 191, 0.4);
+}
+
+/* --- Estilos Generales de Sección --- */
+section {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+.section-title {
+    font-weight: 700;
+    color: var(--brand-blue); 
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.bg-light {
+    background-color: var(--brand-light) !important;
+}
+
+/* --- Sección: "Por Qué Elegirnos" --- */
+.feature-card {
+    background: #ffffff;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+}
+
+/* --- Sección: "Pasos para Contratar" --- */
+.step-card {
+    position: relative;
+    padding: 2rem;
+    background: #ffffff;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+.step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.07);
+}
+.step-number {
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    background-color: var(--brand-blue);
+    color: white;
+    font-weight: 700;
+    font-size: 1.5rem;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 92, 191, 0.3);
+}
+
+/* --- Banner con Hover --- */
+.banner-hover {
+    transition: all 0.3s ease;
+}
+.banner-hover:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important;
+}
+
+/* --- Footer --- */
+.footer-dark {
+    background-color: var(--brand-dark);
+}
+.footer-logo {
+    max-height: 50px;
+    opacity: 0.9;
+    /* CAMBIO: Filtro para volver el SVG blanco */
+    filter: brightness(0) invert(1);
+}
+.footer-link {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.5);
+    transition: all 0.2s ease;
+}
+.footer-link:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+.footer-social-link {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.8rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.footer-social-link:hover {
+    color: #1877F2; /* Color de Facebook */
+}
+
+/* --- Encabezados de Página (Nosotros, Contacto) - MEJORADOS --- */
+.page-header {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+    background-size: cover;
+    background-position: center;
+}
+.page-header-nosotros {
+    /* CAMBIO: Fondo con la oficina */
+    background-image: linear-gradient(rgba(0, 92, 191, 0.8), rgba(0, 74, 154, 0.8)), url('../images/americable.png');
+}
+.page-header-contacto {
+    /* CAMBIO: Fondo con 'hero-bg.jpg' */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/hero-bg.jpg');
+}
+
+/* --- Tarjetas de Contacto "Especiales" --- */
+.contact-card-link {
+    text-decoration: none;
+    color: inherit;
+}
+.contact-card {
+    transition: all 0.3s ease;
+}
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1) !important;
+}
+.whatsapp-card {
+    background-color: #e6f8f0;
+    color: #1d9263;
+}
+.whatsapp-card .fw-bold {
+    color: #1d9263 !important;
+}
+
+/* --- Formulario (Más grande) y Mapa --- */
+.form-control-lg {
+    padding: 0.8rem 1rem;
+    font-size: 1.05rem;
+}
+.form-control:focus {
+    border-color: var(--brand-blue);
+    box-shadow: 0 0 0 0.25rem rgba(0, 92, 191, 0.25);
+}
+.btn-primary.py-3 {
+    font-size: 1.1rem;
+}
+#form-message.success { color: green; font-weight: bold; }
+#form-message.error { color: red; font-weight: bold; }
+
+.map-responsive {
+    overflow: hidden;
+    padding-bottom: 75%; 
+    position: relative;
+    height: 0;
+}
+.map-responsive iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+/* --- BOTÓN WHATSAPP FLOTANTE --- */
+.whatsapp-fab {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+.whatsapp-fab:hover {
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
