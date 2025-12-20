@@ -12,6 +12,10 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     
+    <!-- Firebase SDKs (Compat) -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
@@ -39,6 +43,17 @@
                     <li class="nav-item"><a class="nav-link fw-bold" href="nosotros.html">Nosotros</a></li>
                     <li class="nav-item"><a class="nav-link fw-bold" href="reporte.html">Reportar Avería</a></li>
                     <li class="nav-item ms-lg-2"><a class="nav-link btn btn-primary text-white fw-bold active" href="contacto.html">Contáctanos</a></li>
+                    
+                    <li class="nav-item dropdown ms-lg-2">
+                        <a class="nav-link dropdown-toggle fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-circle fs-4 text-secondary"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end border-0 shadow" aria-labelledby="navbarDropdown">
+                            <li><h6 class="dropdown-header">Acceso Empleados</h6></li>
+                            <li><a class="dropdown-item" href="https://sistema.americabletv.com/" target="_blank"><i class="bi bi-pc-display me-2"></i>Sistema</a></li>
+                            <li><a class="dropdown-item" href="https://crm.americabletv.com/" target="_blank"><i class="bi bi-people-fill me-2"></i>CRM</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -186,6 +201,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="../js/animations.js"></script>
+    <!-- Firebase Logic -->
+    <script src="../js/firebase-config.js"></script>
+    <script src="../js/contact-form.js"></script>
 </body>
 
 </html>
