@@ -8,24 +8,30 @@
 
     <link rel="icon" href="images/logo.svg" type="image/svg+xml">
 
+    <!-- Bootstrap & Styles -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-    <a href="https://wa.me/50585080425" class="whatsapp-fab" target="_blank" data-aos="fade-up" data-aos-delay="1500">
+    <!-- WhatsApp Fab -->
+    <a href="https://wa.me/50585080425" class="whatsapp-fab" target="_blank" data-aos="zoom-in" data-aos-delay="1500"
+        title="Contactar por WhatsApp">
         <i class="bi bi-whatsapp"></i>
     </a>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top shadow-sm">
         <div class="container py-2">
             <a class="navbar-brand" href="index.html">
                 <img src="images/logo.svg" alt="Americable Logo" class="navbar-logo">
@@ -37,174 +43,227 @@
                 <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item"><a class="nav-link fw-bold active" href="index.html">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link fw-bold" href="html/nosotros.html">Nosotros</a></li>
-                    
                     <li class="nav-item"><a class="nav-link fw-bold" href="html/reporte.html">Reportar Avería</a></li>
-                    
-                    <li class="nav-item ms-lg-2"><a class="nav-link btn btn-primary text-white fw-bold" href="html/contacto.html">Contáctanos</a></li>
+                    <li class="nav-item ms-lg-3"><a class="nav-link btn btn-primary text-white"
+                            href="html/contacto.html">Contáctanos</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <header id="inicio" class="hero-section text-white d-flex align-items-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <h1 class="display-3 fw-bold" data-aos="fade-up">La Señal que Conecta a Juigalpa</h1>
-                    <h3 class="my-4" data-aos="fade-up" data-aos-delay="200">"No Tener Americable es como no vivir en Juigalpa"</h3>
-                    <a href="html/contacto.html" class="btn btn-primary btn-lg fw-bold shadow" data-aos="fade-up" data-aos-delay="400">¡Solicita tu servicio hoy!</a>
+    <!-- Hero Section -->
+    <header id="inicio" class="hero-section text-white">
+        <div class="container hero-content">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <h5 class="text-uppercase tracking-wider mb-3 text-warning" data-aos="fade-down">Conectando Juigalpa
+                        con el Mundo</h5>
+                    <h1 class="display-3 fw-bold mb-4" data-aos="zoom-in" data-aos-delay="200">
+                        Lo que Americable Promete <br> <span class="text-primary-light" style="color: #00d2ff;">Te lo
+                            Cumple</span>
+                    </h1>
+                    <p class="hero-subtitle mb-5" data-aos="fade-up" data-aos-delay="400">
+                        "No Tener Americable es como no vivir en Juigalpa"
+                    </p>
+                    <div data-aos="fade-up" data-aos-delay="600">
+                        <a href="html/contacto.html"
+                            class="btn btn-primary btn-lg fw-bold shadow-lg px-5 py-3 rounded-pill me-3">¡Solicita
+                            hoy!</a>
+                        <a href="#por-que" class="btn btn-outline-light btn-lg fw-bold rounded-pill px-5 py-3">Saber
+                            más</a>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <section id="por-que" class="py-5">
+    <!-- Por qué Americable -->
+    <section id="por-que" class="py-5 bg-light">
         <div class="container">
-            <div class="text-center" data-aos="fade-up">
-                <h2 class="section-title">¿Por Qué Americable?</h2>
-                <p class="lead col-lg-8 mx-auto text-muted">Somos la mejor opción en Juigalpa. Y te decimos por qué.</p>
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title">¿Por Qué Elegirnos?</h2>
+                <p class="lead text-muted col-lg-8 mx-auto">Experiencia, estabilidad y compromiso local.</p>
             </div>
-            <div class="row g-4 mt-4 text-center">
+            <div class="row g-4 text-center">
+                <!-- Card 1 -->
                 <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="feature-card h-100 p-4">
-                        <i class="bi bi-headset display-3 text-primary"></i>
-                        <h5 class="fw-bold mt-3">Soporte Local</h5>
-                        <p>Somos de Juigalpa. Te atendemos rápido y en persona.</p>
+                    <div class="feature-card h-100">
+                        <i class="bi bi-headset display-4 text-primary mb-3"></i>
+                        <h5 class="fw-bold fs-5">Soporte Local</h5>
+                        <p class="text-muted small">Atención rápida y personalizada. Porque somos de aquí y entendemos
+                            tus necesidades.</p>
                     </div>
                 </div>
+                <!-- Card 2 -->
                 <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="feature-card h-100 p-4">
-                        <i class="bi bi-broadcast-pin display-3 text-primary"></i>
-                        <h5 class="fw-bold mt-3">Señal Estable</h5>
-                        <p>Disfruta de tu programación sin interrupciones, llueva o truene.</p>
+                    <div class="feature-card h-100">
+                        <i class="bi bi-broadcast-pin display-4 text-primary mb-3"></i>
+                        <h5 class="fw-bold fs-5">Señal Estable</h5>
+                        <p class="text-muted small">Tecnología robusta para que disfrutes sin cortes, sin importar el
+                            clima.</p>
                     </div>
                 </div>
+                <!-- Card 3 -->
                 <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="feature-card h-100 p-4">
-                        <i class="bi bi-star-fill display-3 text-primary"></i>
-                        <h5 class="fw-bold mt-3">VidaTV Canal 14</h5>
-                        <p>El único canal con los eventos y noticias 100% locales.</p>
+                    <div class="feature-card h-100">
+                        <i class="bi bi-star-fill display-4 text-primary mb-3"></i>
+                        <h5 class="fw-bold fs-5">VidaTV Canal 14</h5>
+                        <p class="text-muted small">Contenido exclusivo. Noticias locales y entretenimiento 100%
+                            Juigalpino.</p>
                     </div>
                 </div>
+                <!-- Card 4 -->
                 <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="feature-card h-100 p-4">
-                        <i class="bi bi-tag-fill display-3 text-primary"></i>
-                        <h5 class="fw-bold mt-3">Precios Justos</h5>
-                        <p>La mejor programación a un precio que se ajusta a tu bolsillo.</p>
+                    <div class="feature-card h-100">
+                        <i class="bi bi-tag-fill display-4 text-primary mb-3"></i>
+                        <h5 class="fw-bold fs-5">Precios Justos</h5>
+                        <p class="text-muted small">Calidad premium a tarifas que cuidan la economía de tu hogar.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="pasos" class="py-5 bg-light">
+    <!-- Pasos -->
+    <section id="pasos" class="py-5">
         <div class="container">
-            <div class="text-center" data-aos="fade-up">
-                <h2 class="section-title">Contratar es Muy Fácil</h2>
-                <p class="lead col-lg-8 mx-auto text-muted">Sigue estos 3 simples pasos y empieza a disfrutar.</p>
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title">Tu Servicio en 3 Pasos</h2>
+                <p class="lead text-muted">Simple, rápido y sin complicaciones.</p>
             </div>
-            <div class="row g-4 mt-5">
-                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="step-card">
+            <div class="row g-5 mt-3">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="step-card text-center mt-4">
                         <div class="step-number">1</div>
-                        <h5 class="fw-bold">Contáctanos</h5>
-                        <p class="text-muted">Llámanos, escríbenos por WhatsApp o visita nuestra oficina.</p>
+                        <h4 class="fw-bold mt-4">Contáctanos</h4>
+                        <p class="text-muted">Llámanos o escríbenos. Estamos listos para atenderte.</p>
                     </div>
                 </div>
-                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="step-card">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="step-card text-center mt-4">
                         <div class="step-number">2</div>
-                        <h5 class="fw-bold">Agenda tu Visita</h5>
-                        <p class="text-muted">Coordinamos el día y la hora que más te convenga para la instalación.</p>
+                        <h4 class="fw-bold mt-4">Agenda Visita</h4>
+                        <p class="text-muted">Elegimos juntos el momento perfecto para instalarte.</p>
                     </div>
                 </div>
-                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="step-card">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="step-card text-center mt-4">
                         <div class="step-number">3</div>
-                        <h5 class="fw-bold">¡Disfruta!</h5>
-                        <p class="text-muted">Nuestro técnico dejará todo listo para que veas tus canales favoritos.</p>
+                        <h4 class="fw-bold mt-4">¡Disfruta!</h4>
+                        <p class="text-muted">Relájate y disfruta de la mejor programación de Juigalpa.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="nosotros-preview" class="py-5">
+    <!-- Nosotros Preview -->
+    <section id="nosotros-preview" class="py-5 bg-light">
         <div class="container">
             <div class="row align-items-center g-5">
                 <div class="col-lg-6" data-aos="fade-right">
-                    <h2 class="section-title">Tu empresa de cable 100% local</h2>
-                    <p class="lead text-muted">Somos Americable S.A., una empresa orgullosamente de Juigalpa, comprometida con brindarte entretenimiento de calidad.</p>
-                    <p>No somos una corporación anónima; somos tus vecinos. Nuestra oficina está aquí en la ciudad, lista para atenderte con un servicio técnico rápido y eficiente.</p>
-                    <a href="html/nosotros.html" class="btn btn-outline-primary fw-bold mt-3">Conoce nuestra historia</a>
+                    <h5 class="text-primary fw-bold text-uppercase mb-2">Sobre Nosotros</h5>
+                    <h2 class="display-6 fw-bold mb-4">Tu Compañía, Tu Vecino</h2>
+                    <p class="lead text-muted mb-4">"Nuestra casa está en el corazón de Juigalpa. Creemos en el servicio
+                        cara a cara y en la confianza que genera conocernos."</p>
+                    <p class="mb-4">Más que una empresa de cable, somos parte de la familia Juigalpina. Trabajamos día a
+                        día para mantenerte conectado con lo que más te importa.</p>
+                    <a href="html/nosotros.html" class="btn btn-primary rounded-pill px-4">Nuestra Historia</a>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
-                    <img src="images/americable.png" class="img-fluid rounded shadow-lg" alt="Oficina de Americable en Juigalpa">
+                    <div class="position-relative">
+                        <img src="images/americable.png" class="img-fluid rounded-4 shadow-lg position-relative z-2"
+                            alt="Oficina de Americable">
+                        <!-- Decorativo -->
+                        <div class="position-absolute top-0 start-0 translate-middle bg-warning rounded-circle"
+                            style="width: 100px; height: 100px; opacity: 0.5; filter: blur(40px);"></div>
+                        <div class="position-absolute bottom-0 end-0 translate-middle bg-primary rounded-circle"
+                            style="width: 150px; height: 150px; opacity: 0.3; filter: blur(50px);"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="banner-cta" class="py-5 bg-light">
+    <!-- Banner CTA -->
+    <section id="banner-cta" class="py-5">
         <div class="container">
             <div class="row">
                 <div class="col-12" data-aos="zoom-in">
-                    <a href="html/contacto.html">
-                        <img src="images/banner-completo.png" class="img-fluid rounded shadow-lg banner-hover" alt="Banner Americable y VidaTV - 8508-0425 y 2512-2322">
+                    <a href="html/contacto.html" class="d-block overflow-hidden rounded-4 shadow-lg">
+                        <img src="images/banner-completo.png" class="img-fluid w-100 banner-hover"
+                            alt="Banner Americable">
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="footer-dark py-5">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-4 mb-lg-0">
-                    <a href="index.html"><img src="images/logo.svg" alt="Logo" class="footer-logo mb-3"></a>
-                    <p class="text-white-50">"No Tener Americable es como no vivir en Juigalpa".</p>
-                    <p class="text-white-50 small">Por más de 30 años, al servicio de la familia Juigalpina.</p>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <a href="index.html"><img src="images/logo.svg" alt="Logo Americable" class="footer-logo"></a>
+                    <p class="text-white-50">Comprometidos con llevarte la mejor señal hasta la comodidad de tu hogar.
+                    </p>
+                    <div class="mt-4">
+                        <a href="https://www.facebook.com/americable.juigalpa.2025/" target="_blank"
+                            class="footer-social-link"><i class="bi bi-facebook"></i></a>
+                        <!-- Add more social links if needed -->
+                    </div>
                 </div>
-                <div class="col-lg-4 mb-4 mb-lg-0">
-                    <h5 class="text-white mb-3">Navegación</h5>
+                <div class="col-lg-4">
+                    <h5 class="text-white mb-4">Enlaces Rápidos</h5>
                     <ul class="list-unstyled text-white-50">
-                        <li><a href="index.html" class="footer-link">Inicio</a></li>
-                        <li><a href="html/nosotros.html" class="footer-link">Nosotros</a></li>
-                        <li><a href="html/contacto.html" class="footer-link">Contacto</a></li>
-                        <li><a href="html/reporte.html" class="footer-link">Reportar Avería</a></li>
+                        <li class="mb-2"><a href="index.html" class="footer-link">Inicio</a></li>
+                        <li class="mb-2"><a href="html/nosotros.html" class="footer-link">Nosotros</a></li>
+                        <li class="mb-2"><a href="html/contacto.html" class="footer-link">Contáctanos</a></li>
+                        <li class="mb-2"><a href="html/reporte.html" class="footer-link">Reportar Avería</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4">
-                    <h5 class="text-white mb-3">Contáctanos</h5>
+                    <h5 class="text-white mb-4">Atención al Cliente</h5>
                     <ul class="list-unstyled text-white-50">
-                        <li class="mb-2">
-                            <i class="bi bi-whatsapp me-2 text-success"></i>
-                            <a href="https://wa.me/50585080425" target="_blank" class="footer-link fw-bold">8508-0425</a>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="bi bi-whatsapp text-success fs-4 me-3"></i>
+                            <div>
+                                <small class="d-block text-white-50">WhatsApp</small>
+                                <a href="https://wa.me/50585080425" target="_blank"
+                                    class="text-white fw-bold text-decoration-none">8508-0425</a>
+                            </div>
                         </li>
-                        <li class="mb-2">
-                            <i class="bi bi-telephone-fill me-2"></i>
-                            <span class="fw-bold">2512-2322</span>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="bi bi-telephone-fill text-primary fs-4 me-3"></i>
+                            <div>
+                                <small class="d-block text-white-50">Línea Fija</small>
+                                <span class="text-white fw-bold">2512-2322</span>
+                            </div>
                         </li>
-                        <li class="mt-3">
-                            <i class="bi bi-geo-alt-fill me-2"></i>
-                            Puma 4c al este. Juigalpa, Chontales.
+                        <li class="d-flex align-items-start">
+                            <i class="bi bi-geo-alt-fill text-danger fs-4 me-3"></i>
+                            <div>
+                                <small class="d-block text-white-50">Visítanos</small>
+                                <span class="text-white">Puma 4c al este. Juigalpa, Chontales.</span>
+                            </div>
                         </li>
                     </ul>
-                    <div class="footer-social mt-4">
-                        <a href="https://www.facebook.com/americable.juigalpa.2025/" target="_blank" class="footer-social-link">
-                            <i class="bi bi-facebook"></i>
-                        </a>
-                    </div>
                 </div>
             </div>
-            <hr class="text-white-50 my-4">
-            <div class="text-center text-white-50">
-                <p class="mb-2">© 2024 Americable S.A. | Todos los derechos reservados.</p>
-                <p class="mb-0 small"><a href="crm-login.html" class="footer-link">Acceso Empleados</a></p>
+            <hr class="border-secondary my-5">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="text-white-50 mb-0">© 2024 Americable S.A. | Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+                    <a href="crm-login.html" class="text-white-50 text-decoration-none small hover-white">Acceso
+                        Empleados</a>
+                </div>
             </div>
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/animations.js"></script>

@@ -1,8 +1,18 @@
-/* Definición de variables de color de la marca */
+/* Definición de variables de color de la marca y nuevos estilos premium */
 :root {
-    --brand-blue: #005cbf; /* Azul extraído de tu logo */
-    --brand-dark: #212529; /* Negro suave */
-    --brand-light: #f8f9fa; /* Gris claro */
+    --brand-blue: #005cbf;
+    /* Azul original */
+    --brand-dark: #1a1e21;
+    /* Negro más profundo */
+    --brand-light: #f4f6f9;
+    /* Gris azulado muy claro */
+    --brand-accent: #00d2ff;
+    /* Nuevo acento brillante */
+    --glass-bg: rgba(255, 255, 255, 0.95);
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+    --shadow-hover: 0 20px 40px rgba(0, 92, 191, 0.15);
+    --gradient-primary: linear-gradient(135deg, #005cbf 0%, #003d80 100%);
+    --gradient-overlay: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8));
     --brand-font: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
@@ -13,241 +23,411 @@ html {
 
 body {
     font-family: var(--brand-font);
+    background-color: #fcfcfc;
+    color: var(--brand-dark);
+    overflow-x: hidden;
 }
 
-/* --- Barra de Navegación (Logo más grande y botón fijo) --- */
+/* --- Animaciones Keyframes --- */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px rgba(0, 92, 191, 0.2);
+    }
+
+    50% {
+        box-shadow: 0 0 20px rgba(0, 92, 191, 0.6);
+    }
+
+    100% {
+        box-shadow: 0 0 5px rgba(0, 92, 191, 0.2);
+    }
+}
+
+/* --- Barra de Navegación Premium --- */
+.navbar {
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    transition: all 0.3s ease;
+}
+
 .navbar-logo {
-    max-height: 75px; /* CAMBIO: Aumentado de 65px a 75px */
+    max-height: 70px;
     transition: transform 0.3s ease;
 }
+
 .navbar-logo:hover {
     transform: scale(1.05);
 }
+
 .navbar .nav-link.fw-bold {
     font-weight: 600 !important;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
     transition: color 0.3s ease;
+    position: relative;
 }
+
+.navbar .nav-link.fw-bold::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 5px;
+    left: 0;
+    background-color: var(--brand-blue);
+    transition: width 0.3s ease;
+}
+
+.navbar .nav-link.fw-bold:hover::after,
+.navbar .nav-link.active::after {
+    width: 100%;
+}
+
 .navbar .nav-link.active {
     color: var(--brand-blue) !important;
 }
+
 .navbar .btn-primary {
-    background-color: var(--brand-blue);
-    border-color: var(--brand-blue);
+    background: var(--gradient-primary);
+    border: none;
     transition: all 0.3s ease;
-    min-width: 150px; /* CAMBIO: Agregado para fijar el ancho del botón */
-    text-align: center; /* Centra el texto si el ancho es mayor */
+    min-width: 160px;
+    border-radius: 50px;
+    /* Botones redondeados */
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
 }
+
 .navbar .btn-primary:hover {
-    background-color: #004a9a; 
-    border-color: #004a9a;
     transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0, 92, 191, 0.4);
+    background: linear-gradient(135deg, #004a9a 0%, #002d5e 100%);
 }
 
-
-/* --- Hero Section (Usa 'hero-bg.jpg') --- */
+/* --- Hero Section Revamped --- */
 .hero-section {
-    height: 90vh; 
+    height: 100vh;
+    /* Pantalla completa */
     min-height: 700px;
-    /* CAMBIO: Ahora usa 'hero-bg.jpg' */
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/hero-bg.jpg');
+    position: relative;
+    /* Nuevo gradiente más cinematográfico */
+    background: var(--gradient-overlay), url('../images/hero-bg.jpg');
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
+    /* Parallax básico */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
+
+.hero-content h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, #ffffff, #e0e0e0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #ffcc00;
+    /* Color dorado para resaltar la promesa */
+    margin-bottom: 2rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 1px;
+}
+
 .hero-section .btn-primary {
-    transition: all 0.3s ease;
-    padding: 0.8rem 2rem;
-    font-size: 1.1rem;
+    background: var(--brand-blue);
+    border: none;
+    padding: 1rem 3rem;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    animation: glow 3s infinite;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
+
 .hero-section .btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 15px rgba(0, 92, 191, 0.4);
+    transform: scale(1.05);
+    background-color: #007bff;
 }
+
 
 /* --- Estilos Generales de Sección --- */
 section {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+    padding-top: 7rem;
+    padding-bottom: 7rem;
 }
+
 .section-title {
-    font-weight: 700;
-    color: var(--brand-blue); 
-    margin-bottom: 1.5rem;
+    font-weight: 800;
+    color: var(--brand-blue);
+    margin-bottom: 1rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    position: relative;
+    display: inline-block;
 }
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--brand-blue);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
 .bg-light {
     background-color: var(--brand-light) !important;
 }
 
-/* --- Sección: "Por Qué Elegirnos" --- */
-.feature-card {
+/* --- Tarjetas Glassmorphism (Feature & Steps) --- */
+.feature-card,
+.step-card {
     background: #ffffff;
-    border: 1px solid #eee;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-}
-.feature-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+    border: none;
+    border-radius: 15px;
+    padding: 2.5rem 2rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: var(--shadow-soft);
+    height: 100%;
+    position: relative;
+    overflow: hidden;
 }
 
-/* --- Sección: "Pasos para Contratar" --- */
-.step-card {
-    position: relative;
-    padding: 2rem;
-    background: #ffffff;
-    border: 1px solid #eee;
-    border-radius: 10px;
-    transition: all 0.3s ease;
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--brand-blue);
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
 }
+
+.feature-card:hover::before {
+    transform: scaleY(1);
+}
+
+.feature-card:hover,
 .step-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.07);
+    transform: translateY(-15px);
+    box-shadow: var(--shadow-hover);
 }
+
+.feature-card i {
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.feature-card:hover i {
+    transform: scale(1.2) rotate(10deg);
+    color: var(--brand-accent) !important;
+}
+
+
+/* --- Pasos para Contratar (Mejorado) --- */
 .step-number {
     position: absolute;
-    top: -20px;
-    left: 20px;
-    background-color: var(--brand-blue);
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gradient-primary);
     color: white;
-    font-weight: 700;
-    font-size: 1.5rem;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    box-shadow: 0 4px 10px rgba(0, 92, 191, 0.3);
-}
-
-/* --- Banner con Hover --- */
-.banner-hover {
-    transition: all 0.3s ease;
-}
-.banner-hover:hover {
-    transform: scale(1.02);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important;
-}
-
-/* --- Footer --- */
-.footer-dark {
-    background-color: var(--brand-dark);
-}
-.footer-logo {
-    max-height: 50px;
-    opacity: 0.9;
-    /* CAMBIO: Filtro para volver el SVG blanco */
-    filter: brightness(0) invert(1);
-}
-.footer-link {
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.5);
-    transition: all 0.2s ease;
-}
-.footer-link:hover {
-    color: #ffffff;
-    text-decoration: underline;
-}
-.footer-social-link {
-    color: rgba(255, 255, 255, 0.5);
+    font-weight: 800;
     font-size: 1.8rem;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-.footer-social-link:hover {
-    color: #1877F2; /* Color de Facebook */
-}
-
-/* --- Encabezados de Página (Nosotros, Contacto) - MEJORADOS --- */
-.page-header {
-    padding-top: 8rem;
-    padding-bottom: 8rem;
-    background-size: cover;
-    background-position: center;
-}
-.page-header-nosotros {
-    /* CAMBIO: Fondo con la oficina */
-    background-image: linear-gradient(rgba(0, 92, 191, 0.8), rgba(0, 74, 154, 0.8)), url('../images/americable.png');
-}
-.page-header-contacto {
-    /* CAMBIO: Fondo con 'hero-bg.jpg' */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/hero-bg.jpg');
-}
-
-/* --- Tarjetas de Contacto "Especiales" --- */
-.contact-card-link {
-    text-decoration: none;
-    color: inherit;
-}
-.contact-card {
-    transition: all 0.3s ease;
-}
-.contact-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1) !important;
-}
-.whatsapp-card {
-    background-color: #e6f8f0;
-    color: #1d9263;
-}
-.whatsapp-card .fw-bold {
-    color: #1d9263 !important;
-}
-
-/* --- Formulario (Más grande) y Mapa --- */
-.form-control-lg {
-    padding: 0.8rem 1rem;
-    font-size: 1.05rem;
-}
-.form-control:focus {
-    border-color: var(--brand-blue);
-    box-shadow: 0 0 0 0.25rem rgba(0, 92, 191, 0.25);
-}
-.btn-primary.py-3 {
-    font-size: 1.1rem;
-}
-#form-message.success { color: green; font-weight: bold; }
-#form-message.error { color: red; font-weight: bold; }
-
-.map-responsive {
-    overflow: hidden;
-    padding-bottom: 75%; 
-    position: relative;
-    height: 0;
-}
-.map-responsive iframe {
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-}
-
-/* --- BOTÓN WHATSAPP FLOTANTE --- */
-.whatsapp-fab {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #25D366;
-    color: white;
     width: 60px;
     height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 10px 20px rgba(0, 92, 191, 0.3);
+    border: 4px solid white;
+}
+
+
+/* --- Banner Hover Premium --- */
+.banner-hover {
+    transition: all 0.4s ease;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.banner-hover:hover {
+    transform: scale(1.03);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2) !important;
+}
+
+
+/* --- Footer Moderno --- */
+.footer-dark {
+    background: #111;
+    color: #aaa;
+    position: relative;
+}
+
+.footer-logo {
+    max-height: 60px;
+    filter: brightness(0) invert(1);
+    margin-bottom: 20px;
+}
+
+.footer-social-link {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+}
+
+.footer-social-link:hover {
+    background: var(--brand-blue);
+    color: white !important;
+    transform: translateY(-3px);
+}
+
+/* --- Encabezados de Páginas Internas --- */
+.page-header {
+    padding-top: 10rem;
+    padding-bottom: 6rem;
+    background-size: cover;
+    position: relative;
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 50, 100, 0.85);
+    /* Overlay azulado */
+    z-index: 1;
+}
+
+.page-header .container {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* --- Whatsapp Fab Pulse --- */
+.whatsapp-fab {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #25D366;
+    color: white;
+    width: 65px;
+    height: 65px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2.5rem;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    font-size: 2.8rem;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
     transition: all 0.3s ease;
     z-index: 1000;
+    animation: float 3s ease-in-out infinite;
 }
+
 .whatsapp-fab:hover {
+    transform: scale(1.1) rotate(15deg);
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6);
     color: white;
-    transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* --- Responsividad Avanzada --- */
+@media (max-width: 991px) {
+    .hero-section {
+        background-attachment: scroll;
+        /* Parallax a veces falla en móviles */
+    }
+
+    .navbar-collapse {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 1rem;
+        border-radius: 1rem;
+        margin-top: 0.5rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+}
+
+@media (max-width: 768px) {
+    section {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+
+    .hero-section {
+        min-height: 100vh;
+        /* Pantalla completa en móvil también */
+        height: auto;
+        padding-top: 80px;
+        /* Espacio para el navbar */
+        padding-bottom: 60px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .display-3 {
+        font-size: 2.5rem;
+    }
+
+    /* Ajuste para tarjetas en móvil */
+    .feature-card,
+    .step-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .whatsapp-fab {
+        width: 55px;
+        height: 55px;
+        font-size: 2.2rem;
+        bottom: 20px;
+        right: 20px;
+    }
 }
