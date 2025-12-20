@@ -1,0 +1,53 @@
+DOCUMENTACIÓN COMPLETA - LANDING PAGE AMERICABLE
+==================================================
+
+DESCRIPCIÓN GENERAL
+-------------------
+Este proyecto es la página de aterrizaje (Landing Page) para Americable S.A.
+Esta version incluye la integración con Firebase para el formulario de contacto
+y un menú de navegación para acceder al Sistema y al CRM.
+
+ESTRUCTURA DE ARCHIVOS Y CÓDIGO
+-------------------------------
+
+1. index.html (Página Principal)
+   - Contiene la estructura HTML5, CSS de Bootstrap y AOS (Animaciones).
+   - Menu de Navegación: Se agregó un botón de "Usuario" (Icono) que despliega
+     un menú con enlaces a:
+     * Sistema: https://sistema.americabletv.com/
+     * CRM: https://crm.americabletv.com/
+   - Secciones: Hero (Inicio), Por Qué Elegirnos, Pasos, Nosotros Preview, CTA y Footer.
+   - Scripts: Carga Bootstrap, AOS y los scripts personalizados.
+
+2. html/contacto.html (Formulario de Contacto)
+   - Formulario WEB conectado a Firebase.
+   - Scripts Agregados en <head>:
+     * firebase-app-compat.js
+     * firebase-firestore-compat.js
+   - Lógica: Al enviar el formulario, los datos se guardan en la colección 'leads'
+     de Firestore (la misma base de datos que usa el CRM).
+
+3. js/firebase-config.js (Configuración de Base de Datos)
+   - Contiene las credenciales de conexión (API Key, Project ID) para conectar
+     la página web con el proyecto de Firebase "americable-51b5c".
+   - Inicializa la instancia de Firebase y exporta `window.db` para usar Firestore.
+
+4. js/contact-form.js (Lógica del Formulario)
+   - Escucha el evento 'submit' del formulario con ID `contact-form`.
+   - Captura: Nombre, Teléfono, Dirección y Mensaje.
+   - Validación: Verifica que los campos no estén vacíos.
+   - Envío: Usa `window.db.collection('leads').add(...)` para enviar los datos.
+   - Feedback: Muestra un mensaje de éxito o error al usuario sin recargar la página.
+
+5. css/style.css
+   - Estilos personalizados para la estética "Premium" (Azul y Dorado),
+     gradientes, sombras y tipografía Montserrat.
+
+6. js/animations.js
+   - Inicializa la librería AOS para las animaciones de entrada (fade-up, zoom-in).
+
+INSTRUCCIONES DE USO
+--------------------
+- Para desplegar, solo necesitas subir esta carpeta a cualquier hosting estático
+  (GitHub Pages, Vercel, Netlify o un servidor Apache/Nginx).
+- No requiere backend (PHP/Node) ya que se conecta directamente a Firebase desde el navegador.
