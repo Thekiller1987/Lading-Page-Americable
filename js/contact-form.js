@@ -3,8 +3,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Función genérica para manejar envíos a tu Droplet
     const handleFormSubmit = async (formId, apiEndpoint, submitBtnId, successMsg) => {
         const form = document.getElementById(formId);
-        // Busca el div de mensaje dependiendo del formulario
         const msgDiv = document.getElementById(formId === 'contact-form' ? 'form-message' : 'form-message-report');
+
+        // Define el subdominio de API para conectar con el Backend en DigitalOcean
+        const BASE_URL = 'https://api.americabletv.com';
 
         if (!form) return;
 
@@ -20,13 +22,11 @@ document.addEventListener('DOMContentLoaded', () => {
             msgDiv.innerHTML = '';
 
             try {
-                // Capturar datos automáticamente del formulario usando los "name" del HTML
                 const formData = new FormData(form);
                 const payload = Object.fromEntries(formData.entries());
 
-                // ENVIAR AL BACKEND (Vía Nginx Proxy /api -> localhost:5002)
-                // Usamos ruta relativa para que funcione con HTTPS sin errores de Mixed Content
-                const response = await fetch(apiEndpoint, {
+                // ENVIAR AL BACKEND (Vía API Subdomain)
+                const response = await fetch(`${BASE_URL}${apiEndpoint}`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
