@@ -24,8 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 const formData = new FormData(form);
                 const payload = Object.fromEntries(formData.entries());
 
-                // ENVIAR A TU DROPLET (Puerto 5002)
-                const response = await fetch(`http://142.93.85.240:5002${apiEndpoint}`, {
+                // ENVIAR AL BACKEND (Vía Nginx Proxy /api -> localhost:5002)
+                // Usamos ruta relativa para que funcione con HTTPS sin errores de Mixed Content
+                const response = await fetch(apiEndpoint, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
