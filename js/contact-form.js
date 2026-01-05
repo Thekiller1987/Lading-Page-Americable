@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
         contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
 
-            // Deshabilitar botón para evitar doble envío
             const btn = document.getElementById('submit-button');
             const originalBtnText = btn.textContent;
             btn.disabled = true;
@@ -14,42 +13,37 @@ document.addEventListener('DOMContentLoaded', () => {
             msgDiv.innerHTML = '';
 
             try {
-                const nombre = document.getElementById('nombre').value.trim();
-                const telefono = document.getElementById('telefono').value.trim();
-                const direccion = document.getElementById('direccion').value.trim();
-                const mensaje = document.getElementById('mensaje').value.trim();
+                // Captura de datos según tus formularios de las imágenes
+                const payload = {
+                    nombre: document.getElementById('nombre').value.trim(),
+                    telefono: document.getElementById('telefono').value.trim(),
+                    direccion: document.getElementById('direccion').value.trim(),
+                    mensaje: document.getElementById('mensaje').value.trim()
+                };
 
-                // Validación básica
-                if (!nombre || !telefono || !direccion) {
-                    throw new Error("Por favor completa los campos requeridos.");
-                }
-
-                // Guardar en Firestore ('leads' collection)
-                await window.db.collection('leads').add({
-                    name: nombre,
-                    phone: telefono,
-                    address: direccion,
-                    notes: mensaje,
-                    status: 'Pendiente', // Estado inicial para el CRM
-                    timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-                    origin: 'Landing Page'
+                // Enviamos a tu Droplet (ajusta la URL si es necesario)
+                const response = await fetch('/api/contacto', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
                 });
+
+                if (!response.ok) throw new Error("Error en la respuesta del servidor");
 
                 // Éxito
                 msgDiv.innerHTML = `
                     <div class="alert alert-success shadow-sm rounded-3">
                         <i class="bi bi-check-circle-fill me-2"></i>
-                        ¡Gracias! Tu mensaje ha sido recibido. Te contactaremos pronto.
+                        ¡Gracias! Info guardada en el sistema CRM.
                     </div>
                 `;
                 contactForm.reset();
 
             } catch (error) {
-                console.error("Error al enviar formulario:", error);
+                console.error("Error:", error);
                 msgDiv.innerHTML = `
-                    <div class="alert alert-danger shadow-sm rounded-3">
-                        <i class="bi bi-exclamation-triangle-fill me-2"></i>
-                        Hubo un error al enviar. Por favor intenta escribiéndonos al WhatsApp.
+                    <div class="alert alert-danger">
+                        Error al conectar con el servidor de Americable.
                     </div>
                 `;
             } finally {
