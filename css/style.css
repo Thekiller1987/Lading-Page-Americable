@@ -104,45 +104,42 @@ body {
 .navbar .nav-link {
     font-weight: 600;
     color: #444 !important;
-    margin: 0 10px;
+    margin: 0 5px;
     font-size: 0.95rem;
-    position: relative;
-    transition: color 0.3s ease;
+    padding: 0.5rem 1rem !important;
+    border-radius: 50px;
+    transition: all 0.3s ease;
 }
 
 .navbar .nav-link:hover,
 .navbar .nav-link.active {
     color: var(--brand-blue) !important;
+    background: rgba(0, 112, 243, 0.05);
+    /* Sutil fondo al pasar el mouse */
 }
 
+/* Eliminamos la línea inferior anterior para usar el estilo de botón/píldora */
 .navbar .nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 5px;
-    left: 0;
-    background: var(--brand-blue);
-    transition: width 0.3s ease;
-}
-
-.navbar .nav-link:hover::after,
-.navbar .nav-link.active::after {
-    width: 100%;
+    display: none;
 }
 
 .navbar .btn-primary {
     background: var(--gradient-primary);
     border: none;
-    box-shadow: 0 4px 14px rgba(0, 118, 255, 0.39);
+    box-shadow: 0 4px 14px rgba(0, 118, 255, 0.3);
+    /* Sombra más suave y difusa */
     color: white !important;
-    padding: 0.6rem 1.5rem;
+    padding: 0.7rem 1.8rem;
+    /* Más amplios */
     border-radius: 50px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Rebote sutil */
 }
 
 .navbar .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 118, 255, 0.23);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 20px rgba(0, 118, 255, 0.4);
+    filter: brightness(1.1);
 }
 
 /* --- Page Headers (Internal Pages) --- */
