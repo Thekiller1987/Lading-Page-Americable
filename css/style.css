@@ -435,16 +435,115 @@ section {
 }
 
 /* --- Mobile Responsiveness --- */
+@media (max-width: 991px) {
+    .hero-content h1 {
+        font-size: 3.5rem;
+    }
+
+    section {
+        padding: 5rem 0;
+    }
+
+    .navbar-collapse {
+        background: white;
+        padding: 1rem;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        margin-top: 1rem;
+    }
+
+    .navbar .nav-link {
+        margin: 5px 0;
+        padding-left: 15px !important;
+    }
+
+    .navbar .btn-primary {
+        margin-top: 10px;
+        width: 100%;
+        text-align: center;
+    }
+}
+
 @media (max-width: 768px) {
     .hero-content h1 {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
     }
 
     .hero-subtitle {
         font-size: 1.1rem;
+        margin-bottom: 2rem;
     }
 
     .section-title {
         font-size: 2rem;
+    }
+
+    section {
+        padding: 4rem 0;
+    }
+
+    .feature-card,
+    .step-card {
+        margin-bottom: 20px;
+    }
+
+    .footer-dark {
+        text-align: center;
+        padding-top: 3rem;
+    }
+
+    .footer-dark .col-lg-4 {
+        margin-bottom: 2rem;
+    }
+
+    .footer-social-link {
+        margin: 0 8px;
+    }
+
+    /* Center align footer lists on mobile */
+    .footer-dark ul li {
+        justify-content: center;
+    }
+
+    .d-flex.align-items-start {
+        align-items: center !important;
+        flex-direction: column;
+    }
+
+    .d-flex.align-items-start i,
+    .d-flex.align-items-center i {
+        margin-right: 0 !important;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-section .btn-lg {
+        padding: 0.8rem 2rem;
+        width: 100%;
+        margin-bottom: 10px;
+        margin-right: 0 !important;
+        display: block;
+    }
+
+    .navbar-brand img {
+        max-height: 45px;
+    }
+
+    .whatsapp-fab {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        bottom: 20px;
+        right: 20px;
     }
 }
