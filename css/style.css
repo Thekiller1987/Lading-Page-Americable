@@ -208,6 +208,7 @@ body {
     line-height: 1.1;
     margin-bottom: 1.5rem;
     background: linear-gradient(to right, #fff, #b4dfff);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
@@ -312,6 +313,7 @@ section {
     font-size: 3.5rem;
     margin-bottom: 1.5rem;
     background: var(--gradient-primary);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
@@ -434,116 +436,267 @@ section {
     box-shadow: 0 10px 25px rgba(37, 211, 102, 0.6);
 }
 
-/* --- Mobile Responsiveness --- */
+/* --- Premium Animations & Mobile App-Like Feel --- */
+@keyframes slide-up-fade {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce-in {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+
+    70% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse-soft {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 112, 243, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(0, 112, 243, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 112, 243, 0);
+    }
+}
+
+/* Mobile Menu Overlay Style */
 @media (max-width: 991px) {
-    .hero-content h1 {
-        font-size: 3.5rem;
-    }
-
-    section {
-        padding: 5rem 0;
-    }
-
     .navbar-collapse {
-        background: white;
-        padding: 1rem;
-        border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        margin-top: 1rem;
-    }
-
-    .navbar .nav-link {
-        margin: 5px 0;
-        padding-left: 15px !important;
-    }
-
-    .navbar .btn-primary {
-        margin-top: 10px;
+        position: fixed;
+        top: 0;
+        left: 0;
         width: 100%;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.98);
+        z-index: 1050;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        transform: translateY(-20px);
+    }
+
+    .navbar-collapse.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .navbar-nav {
         text-align: center;
+        width: 100%;
+    }
+
+    .nav-item {
+        margin: 15px 0;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.4s ease;
+    }
+
+    .navbar-collapse.show .nav-item {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Staggered animation for menu items */
+    .navbar-collapse.show .nav-item:nth-child(1) {
+        transition-delay: 0.1s;
+    }
+
+    .navbar-collapse.show .nav-item:nth-child(2) {
+        transition-delay: 0.2s;
+    }
+
+    .navbar-collapse.show .nav-item:nth-child(3) {
+        transition-delay: 0.3s;
+    }
+
+    .navbar-collapse.show .nav-item:nth-child(4) {
+        transition-delay: 0.4s;
+    }
+
+    .navbar-collapse.show .nav-item:nth-child(5) {
+        transition-delay: 0.5s;
+    }
+
+    .nav-link {
+        font-size: 1.5rem !important;
+        font-weight: 700 !important;
+        color: var(--brand-dark) !important;
+    }
+
+    /* Close button for mobile menu */
+    .navbar-toggler {
+        z-index: 1060;
+        border: none;
+        padding: 0;
+    }
+
+    .navbar-toggler:focus {
+        box-shadow: none;
+    }
+
+    /* Hide the default toggler icon and make a custom one if needed, 
+       but for now we'll standard bootstrap one but ensure z-index */
+}
+
+/* --- Mobile Responsiveness (Premium App-Like) --- */
+@media (max-width: 991px) {
+    /* Navbar adjust is handled above in the overlay section */
+
+    .hero-content h1 {
+        font-size: 3rem;
     }
 }
 
 @media (max-width: 768px) {
+
+    /* Global App-Like Feel */
+    body {
+        /* Prevents horizontal scroll sticking */
+        position: relative;
+    }
+
+    /* Smooth Entry for Sections */
+    section {
+        padding: 4rem 1.5rem;
+        opacity: 0;
+        animation: slide-up-fade 0.8s ease-out forwards;
+    }
+
+    /* Staggered Section Animations using animation-delay would be ideal with JS,
+       but here we ensure they fade in when they enter viewport via AOS mainly. 
+       We will enforce some defaults here. */
+
+    .hero-section {
+        min-height: 90vh;
+        /* Full screen minus address bar roughly */
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+        overflow: hidden;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    }
+
     .hero-content h1 {
-        font-size: 2.8rem;
+        font-size: 2.5rem;
+        line-height: 1.2;
+        margin-bottom: 2rem;
+        animation: slide-up-fade 1s ease-out;
     }
 
     .hero-subtitle {
         font-size: 1.1rem;
-        margin-bottom: 2rem;
+        margin-bottom: 2.5rem;
+        opacity: 0;
+        animation: slide-up-fade 1s ease-out 0.3s forwards;
     }
 
-    .section-title {
-        font-size: 2rem;
+    .hero-section .btn {
+        width: 100%;
+        display: block;
+        margin: 10px 0 !important;
+        padding: 1.2rem;
+        font-size: 1.1rem;
+        border-radius: 15px;
+        opacity: 0;
+        animation: bounce-in 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.6s forwards;
     }
 
-    section {
-        padding: 4rem 0;
-    }
-
-    .feature-card,
-    .step-card {
-        margin-bottom: 20px;
-    }
-
-    .footer-dark {
-        text-align: center;
-        padding-top: 3rem;
-    }
-
-    .footer-dark .col-lg-4 {
-        margin-bottom: 2rem;
-    }
-
-    .footer-social-link {
-        margin: 0 8px;
-    }
-
-    /* Center align footer lists on mobile */
-    .footer-dark ul li {
-        justify-content: center;
-    }
-
-    .d-flex.align-items-start {
-        align-items: center !important;
+    /* Cards - Snap Scroll / Swipe Feel */
+    .row.g-4 {
+        /* Optional: Enable horizontal scroll for cards if desired, 
+           otherwise keep vertical but with better spacing */
+        display: flex;
         flex-direction: column;
+        gap: 20px;
     }
 
-    .d-flex.align-items-start i,
-    .d-flex.align-items-center i {
-        margin-right: 0 !important;
-        margin-bottom: 10px;
+    .feature-card {
+        margin-bottom: 0;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        border: 1px solid rgba(0, 0, 0, 0.03);
+        transform: translateY(0);
+        /* Reset hover transform */
+    }
+
+    .feature-card:active {
+        transform: scale(0.98);
+    }
+
+    .feature-card i {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Footer - Bottom Sheet Style */
+    .footer-dark {
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+        padding-top: 4rem;
+        margin-top: -30px;
+        /* Overlap effect */
+        position: relative;
+        z-index: 10;
+        background: linear-gradient(to bottom, #0a192f, #020c1b);
+    }
+
+    .whatsapp-fab {
+        width: 55px;
+        height: 55px;
+        bottom: 25px;
+        right: 25px;
+        font-size: 1.8rem;
+        animation: pulse-soft 3s infinite;
     }
 }
 
 @media (max-width: 576px) {
     .container {
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-left: 25px;
+        padding-right: 25px;
     }
 
-    .hero-content h1 {
-        font-size: 2.2rem;
+    .section-title {
+        font-size: 1.8rem;
+        text-align: center;
     }
 
-    .hero-section .btn-lg {
-        padding: 0.8rem 2rem;
-        width: 100%;
-        margin-bottom: 10px;
-        margin-right: 0 !important;
-        display: block;
-    }
-
-    .navbar-brand img {
-        max-height: 45px;
-    }
-
-    .whatsapp-fab {
-        width: 50px;
-        height: 50px;
-        font-size: 1.5rem;
-        bottom: 20px;
-        right: 20px;
+    .section-title::after {
+        margin-left: auto;
+        margin-right: auto;
     }
 }
